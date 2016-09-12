@@ -18,4 +18,33 @@ curl {URL} > {output}
 zip -r {file}.zip {path}
 unzip {file}.zip
 
+# Remove directory
+rm -rf directory
+
 # Create user
+
+# Hostname
+# --------------------------------------------------------------
+# Change
+echo "codeman" >> /etc/hosts
+hostname {codeman}
+
+# Show
+hostname
+# --------------------------------------------------------------
+
+# Show
+hostname
+
+# Last command
+npm install -g sass
+sudo !!
+
+# Write to file
+# --------------------------------------------------------------
+# Overwrite
+echo "test" > file
+
+# Push
+echo "test" >> file
+# --------------------------------------------------------------
