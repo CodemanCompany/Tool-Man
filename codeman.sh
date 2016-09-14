@@ -48,3 +48,15 @@ echo "test" > file
 # Push
 echo "test" >> file
 # --------------------------------------------------------------
+
+
+# MySQL remote
+# --------------------------------------------------------------
+# Add in my.cnf
+skip-external-locking
+bind-address	=	{ip}
+
+# Add in console
+GRANT ALL PRIVILEGES ON *.* TO root@'%' IDENTIFIED BY 'password';
+FLUSH PRIVILEGES;
+# --------------------------------------------------------------
