@@ -43,10 +43,13 @@ sudo !!
 # Write to file
 # --------------------------------------------------------------
 # Overwrite
-echo "test" > file
+echo "test" > {file}
 
 # Push
-echo "test" >> file
+echo "test" >> {file}
+
+# Clean
+> {file}
 # --------------------------------------------------------------
 
 # MySQL remote
