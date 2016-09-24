@@ -15,9 +15,11 @@ echo "\n ██████╗ ██████╗ ██████╗ █�
  ╚═════╝ ╚═════╝ ╚═════╝ ╚══════╝╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝"
 echo "\nWhat web server you want to install? (Apache or Nginx)"
 read daemon
+echo "\IP Address"
+read ip
 
 function base() {
-	echo "\nStart\nWeb Server:\t\t\t\t\t$daemon"
+	echo "\n\nStart\nWeb Server:\t\t\t\t\t$daemon"
 	echo "Base configuration\t\t\t\tOK"
 	locale-gen UTF-8
 	apt-get update
@@ -58,6 +60,7 @@ if [ "$daemon" == "apache" ] || [ "$daemon" == "Apache" ]; then
 	# apt-get install php5-mysql php5-curl -y
 	apt-get install php7.0-common libapache2-mod-php7.0 php7.0-cli -y
 	apt-get install php7.0-mysql php7.0-curl -y
+	echo -e "<VirtualHost *:80>\n\tServerAdmin\tshield@codeman.company\n\tServerName\t$ip\n\tRedirect / http://codeman.company/\n</VirtualHost>" > /etc/apache2/sites-enabled/amantekatl.conf
 	service apache2 restart
 	echo "PHP\t\t\t\t\t\tOK"
 	codeman
