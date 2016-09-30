@@ -13,9 +13,9 @@ echo "\n ██████╗ ██████╗ ██████╗ █�
 ██║     ██║   ██║██║  ██║██╔══╝  ██║╚██╔╝██║██╔══██║██║╚██╗██║
 ╚██████╗╚██████╔╝██████╔╝███████╗██║ ╚═╝ ██║██║  ██║██║ ╚████║
  ╚═════╝ ╚═════╝ ╚═════╝ ╚══════╝╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝"
-echo "\nUser"
+echo "\nUser:"
 read user
-echo "\nHost"
+echo "\nHost:"
 read host
 
 echo "\n\nGit Install ..."
@@ -30,7 +30,9 @@ cd ~/codeman.git && git init --bare --shared
 
 # Hooks
 echo -e '#!/bin/bash\ngit --work-tree="/home/$user/app" --git-dir="/home/$user/codeman.git" checkout -f' > ~/codeman.git/hooks/post-receive
+chmod 755 post-receive
 
 # Connect to repository
 echo "ssh-add ~/.ssh/cert"
 echo "git clone $user@$host:~/codeman.git"
+echo "git remote add production $user@$host:~/codeman.git"
