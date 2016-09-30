@@ -13,13 +13,20 @@ echo "\n ██████╗ ██████╗ ██████╗ █�
 ██║     ██║   ██║██║  ██║██╔══╝  ██║╚██╔╝██║██╔══██║██║╚██╗██║
 ╚██████╗╚██████╔╝██████╔╝███████╗██║ ╚═╝ ██║██║  ██║██║ ╚████║
  ╚═════╝ ╚═════╝ ╚═════╝ ╚══════╝╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝"
-echo "\nUser:"
-read user
+echo "\nPackage manager (yum / apt):"
+read package
 echo "\nHost:"
 read host
+echo "\nUser:"
+read user
 
 echo "\n\nGit Install ..."
-apt-get install git -y
+
+if [[ "$package" = "yum" ]]; then
+	yum install git -y
+elif [[ "$package" = "apt" ]]; then
+	apt-get install git -y
+fi
 
 git config --global user.name "Codeman Company"
 git config --global user.email info@codeman.company
@@ -30,7 +37,7 @@ cd ~/codeman.git && git init --bare --shared
 
 # Hooks
 echo -e '#!/bin/bash\ngit --work-tree="/home/$user/app" --git-dir="/home/$user/codeman.git" checkout -f' > ~/codeman.git/hooks/post-receive
-chmod 755 post-receive
+chmod 755 ~/codeman.git/hooks/post-receive
 
 # Connect to repository
 echo "ssh-add ~/.ssh/cert"
