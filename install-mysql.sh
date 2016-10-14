@@ -22,9 +22,10 @@ wget http://dev.mysql.com/get/$package --output-document=/root/$package
 dpkg -i /root/$package
 apt-get update
 apt-get install mysql-server -y
+rm -rf /root/$package
 clear
 service mysql status
 service mysql stop
 service mysql start
 
-mysql_secure_installation
+# mysql_secure_installation

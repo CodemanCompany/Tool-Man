@@ -6,85 +6,53 @@
 # ╚██████╗╚██████╔╝██████╔╝███████╗██║ ╚═╝ ██║██║  ██║██║ ╚████║
 #  ╚═════╝ ╚═════╝ ╚═════╝ ╚══════╝╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝
 
-# Basic
-rm -rf {file}
-chmod -R 755 {directory}
-chown -R {user}:{user} {directory}
-
-# Download file
-curl {URL} > {output}
-
-# Compress
-zip -r {file}.zip {path}
-unzip {file}.zip
-
-# Remove directory
-rm -rf directory
-
-# Create user
-
 # --------------------------------------------------------------
-# Hostname
+# Restore
 # --------------------------------------------------------------
-# Change
-echo "codeman" >> /etc/hosts
-hostname {codeman}
-
-# Show
-hostname
-# --------------------------------------------------------------
-
-# Show
-hostname
-
-# Last command
-npm install -g sass
-sudo !!
-
-# --------------------------------------------------------------
-# Write to file
-# --------------------------------------------------------------
-# Overwrite
-echo "test" > {file}
-
-# Push
-echo "test" >> {file}
-
-# Clean
-> {file}
+mysql -u root -p < file.sql
 # --------------------------------------------------------------
 
 # --------------------------------------------------------------
-# Storage
+# Remote
 # --------------------------------------------------------------
-# Disk capacity
-df -h
+# Add in my.cnf
+skip-external-locking
+bind-address	=	{ip}|0.0.0.0
 
-# List files with size
-ls -lh
+# Add in console MySQL
+GRANT ALL PRIVILEGES ON *.* TO root@'%' IDENTIFIED BY 'password';
+FLUSH PRIVILEGES;
 
-# Folder size (Summary)
-du -h
+# restart
+service mysql restart
 
-# Folder size
-du -sh
-du -sh {directory}
-# --------------------------------------------------------------
-
-# --------------------------------------------------------------
-# CPU
-# --------------------------------------------------------------
-# Show characteristics
-cat /proc/cpuinfo
-
-# Show characteristics
-lscpu
-
-# CPU usage
-ps -e -o pcpu,cpu,nice,state,cputime,args --sort pcpu | sed '/^ 0.0 /d'
+# Check
+use mysql;
+SELECT host, user, password FROM user;
+SELECT host, user, password FROM user WHERE user = "root";
 # --------------------------------------------------------------
 
 # --------------------------------------------------------------
-# netstat
+# Remove
 # --------------------------------------------------------------
+sudo apt-get remove --purge mysql\*
+sudo dpkg -l | grep -i mysql
+apt-get clean
+updatedb
+# --------------------------------------------------------------
+
+# --------------------------------------------------------------
+# UTF-8
+# --------------------------------------------------------------
+	[mysqld]
+	# --------------------------------------------------------------
+	# Codeman
+	# --------------------------------------------------------------
+	character-set-server	=	utf8
+	collation-server		=	utf8_unicode_ci
+	init_connect			=	'SET collation_connection = utf8_unicode_ci'
+	init_connect			=	'SET NAMES utf8'
+	init-connect			=	'SET NAMES utf8'
+	skip-character-set-client-handshake
+	# --------------------------------------------------------------
 # --------------------------------------------------------------
