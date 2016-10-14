@@ -33,6 +33,7 @@ function codeman() {
 	rm -rf /var/www/html/*
 	rm -rf /etc/apache2/sites-available/*
 	rm -rf /etc/apache2/sites-enabled/*
+	echo -e "<VirtualHost *:80>\n\tServerAdmin\tshield@codeman.company\n\tServerName\t$ip\n\tRedirect / http://codeman.company/\n</VirtualHost>" > /etc/apache2/sites-enabled/amantekatl.conf
 	mkdir /var/www/html/codeman
 	mkdir /var/www/html/codeman/api
 	mkdir /var/www/html/codeman/app
@@ -60,7 +61,6 @@ if [ "$daemon" == "apache" ] || [ "$daemon" == "Apache" ]; then
 	# apt-get install php5-mysql php5-curl -y
 	apt-get install php7.0-common libapache2-mod-php7.0 php7.0-cli -y
 	apt-get install php7.0-mysql php7.0-curl -y
-	echo -e "<VirtualHost *:80>\n\tServerAdmin\tshield@codeman.company\n\tServerName\t$ip\n\tRedirect / http://codeman.company/\n</VirtualHost>" > /etc/apache2/sites-enabled/amantekatl.conf
 	service apache2 restart
 	echo "PHP\t\t\t\t\t\tOK"
 	codeman
