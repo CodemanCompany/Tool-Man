@@ -37,7 +37,7 @@ echo "User:\t\t\t\t$user"
 echo "Path:\t\t\t\t$path"
 
 # MySQL
-mysqldump --user $user --password --default-character-set=utf8 --events --routines $database > $path$database$DATE.sql
+mysqldump --user $user --password --default-character-set=utf8 --events --routines $database | sed -e 's/DEFINER[ ]*=[ ]*[^*]*\*/\*/' > $path$database$DATE.sql
 sed -i "1i DROP SCHEMA IF EXISTS $database;\nCREATE SCHEMA $database;\nUSE $database;" $path$database$DATE.sql
 
 echo "\nBackup:\t$path$database$DATE.sql"
