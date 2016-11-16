@@ -54,13 +54,16 @@ if [ "$daemon" == "apache" ] || [ "$daemon" == "Apache" ]; then
 	a2enmod expires
 	a2enmod headers
 	a2enmod rewrite
+	apt-get install apache2-mpm-itk -y
+	a2enmod mpm_itk
+	service apache2 restart
 	echo "ServerTokens Prod" >> /etc/apache2/apache2.conf
 	service apache2 restart
 	echo "Web server\t\t\t\t\tOK"
-	# apt-get install php5-common libapache2-mod-php5 php5-cli -y
-	# apt-get install php5-mysql php5-curl -y
-	apt-get install php7.0-common libapache2-mod-php7.0 php7.0-cli -y
-	apt-get install php7.0-mysql php7.0-curl -y
+	apt-get install php5-common libapache2-mod-php5 php5-cli -y
+	apt-get install php5-mysql php5-curl -y
+	# apt-get install php7.0-common libapache2-mod-php7.0 php7.0-cli -y
+	# apt-get install php7.0-mysql php7.0-curl -y
 	service apache2 restart
 	echo "PHP\t\t\t\t\t\tOK"
 	codeman
