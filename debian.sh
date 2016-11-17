@@ -64,7 +64,9 @@ if [ "$daemon" == "apache" ] || [ "$daemon" == "Apache" ]; then
 	service apache2 restart
 	echo "Web server\t\t\t\t\tOK"
 	apt-get install php5-common libapache2-mod-php5 php5-cli -y
-	apt-get install php5-mysql php5-curl -y
+	apt-get install php5-mysql php5-curl php5-gd -y
+	# Moodle
+	# apt-get install php5-xmlrpc php5-intl -y
 	# apt-get install php7.0-common libapache2-mod-php7.0 php7.0-cli -y
 	# apt-get install php7.0-mysql php7.0-curl -y
 	service apache2 restart
