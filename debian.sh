@@ -26,6 +26,9 @@ function base() {
 	apt-get upgrade
 	apt-get install curl -y
 	apt-get install zip -y
+	apt-get install git-all -y
+	git config --global user.name "Gustavo Martínez"
+	git config --global user.email gustavo@codeman.company
 }	# end function
 
 function codeman() {
