@@ -19,10 +19,10 @@ echo "\n ██████╗ ██████╗ ██████╗ █�
 echo "\nInstall MySQL"
 
 wget http://dev.mysql.com/get/$package --output-document=/root/$package
-yum localinstall /root/$package
+yum localinstall /root/$package -y
 yum repolist enabled | grep "mysql.*-community.*"
 yum update
-yum install mysql-community-server
+yum install mysql-community-server -y
 rm -rf /root/$package
 clear
 service mysqld start
