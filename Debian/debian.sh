@@ -7,23 +7,24 @@
 #  ╚═════╝ ╚═════╝ ╚═════╝ ╚══════╝╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝
 
 clear
-echo "\n ██████╗ ██████╗ ██████╗ ███████╗███╗   ███╗ █████╗ ███╗   ██╗
+echo -e "\n ██████╗ ██████╗ ██████╗ ███████╗███╗   ███╗ █████╗ ███╗   ██╗
 ██╔════╝██╔═══██╗██╔══██╗██╔════╝████╗ ████║██╔══██╗████╗  ██║
 ██║     ██║   ██║██║  ██║█████╗  ██╔████╔██║███████║██╔██╗ ██║
 ██║     ██║   ██║██║  ██║██╔══╝  ██║╚██╔╝██║██╔══██║██║╚██╗██║
 ╚██████╗╚██████╔╝██████╔╝███████╗██║ ╚═╝ ██║██║  ██║██║ ╚████║
  ╚═════╝ ╚═════╝ ╚═════╝ ╚══════╝╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝"
-echo "\nWhat web server you want to install? (Apache or Nginx)"
+echo -e "\nWhat web server you want to install? (Apache or Nginx)"
 read daemon
-echo "\IP Address"
+echo -e "\nIP Address"
 read ip
 
 function base() {
-	echo "\n\nStart\nWeb Server:\t\t\t\t\t$daemon"
-	echo "Base configuration\t\t\t\tOK"
+	echo -e "\n\nStart\nWeb Server:\t\t\t\t\t$daemon"
+	echo -e "Base configuration\t\t\t\tOK"
 	locale-gen UTF-8
 	apt-get update
 	apt-get upgrade
+	dpkg-reconfigure tzdata
 	apt-get install curl -y
 	apt-get install zip -y
 	apt-get install git-all -y
@@ -46,7 +47,7 @@ function codeman() {
 
 	curl http://cdn.codeman.company/base-Debian > /root/Codeman/base
 	curl http://cdn.codeman.company/Codeman.py > /root/Codeman/Codeman.py
-	echo "Configuration Codeman\t\t\t\tOK"
+	echo -e "Configuration Codeman\t\t\t\tOK"
 	echo "S U C C E S S!"
 }	# end function
 
@@ -70,10 +71,10 @@ if [ "$daemon" == "apache" ] || [ "$daemon" == "Apache" ]; then
 	# apt-get install php7.0-common libapache2-mod-php7.0 php7.0-cli -y
 	# apt-get install php7.0-mysql php7.0-curl -y
 	service apache2 restart
-	echo "PHP\t\t\t\t\t\tOK"
+	echo -e "PHP\t\t\t\t\t\tOK"
 	codeman
 elif [ "$daemon" == "nginx" ] || [ "$daemon" == "Nginx" ]; then
-	echo "\n*** Not found ***"
+	echo -e "\n*** Not found ***"
 	# base
 	# apt-get install nginx -y
 	# service nginx start
@@ -85,5 +86,5 @@ elif [ "$daemon" == "nginx" ] || [ "$daemon" == "Nginx" ]; then
 	# service nginx restart
 	# codeman
 else
-	echo "\n*** Not found ***"
+	echo -e "\n*** Not found ***"
 fi
