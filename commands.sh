@@ -6,88 +6,103 @@
 # ╚██████╗╚██████╔╝██████╔╝███████╗██║ ╚═╝ ██║██║  ██║██║ ╚████║
 #  ╚═════╝ ╚═════╝ ╚═════╝ ╚══════╝╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝
 
-# Basic
-rm -rf {file}
-chmod -R 755 {directory}
-chown -R {user}:{user} {directory}
+# --------------------------------------------------------------
+# Basics
+# --------------------------------------------------------------
+	rm -rf {file}
+	chmod -R 755 {directory}
+	chown -R {user}:{user} {directory}
 
-# Download file
-curl {URL} > {output}
+	# Download file
+	curl {URL} > {output}
 
-# Compress
-zip -r {file}.zip {path}
-unzip {file}.zip
+	# Compress
+	zip -r {file}.zip {path}
+	unzip {file}.zip
 
-# Remove directory
-rm -rf directory
+	# Remove directory
+	rm -rf directory
 
+	# Last command
+	sudo !!
+
+	# Change timezone
+	dpkg-reconfigure tzdata
+# --------------------------------------------------------------
+
+
+
+# --------------------------------------------------------------
 # Create user
+# --------------------------------------------------------------
+	
+# --------------------------------------------------------------
+
+
 
 # --------------------------------------------------------------
 # Hostname
 # --------------------------------------------------------------
-# Change
-echo "codeman" >> /etc/hosts
-hostname {codeman}
+	# Change
+	echo "codeman" >> /etc/hosts
+	hostname {codeman}
 
-# Show
-hostname
+	# Show
+	hostname
 # --------------------------------------------------------------
 
-# Show
-hostname
 
-# Last command
-npm install -g sass
-sudo !!
 
 # --------------------------------------------------------------
 # Write to file
 # --------------------------------------------------------------
-# Overwrite
-echo "test" > {file}
+	# Overwrite
+	echo "test" > {file}
 
-# Push
-echo "test" >> {file}
+	# Push
+	echo "test" >> {file}
 
-# Clean
-> {file}
+	# Clean
+	> {file}
 # --------------------------------------------------------------
+
+
 
 # --------------------------------------------------------------
 # Storage
 # --------------------------------------------------------------
-# Disk capacity
-df -h
+	# Disk capacity
+	df -h
 
-# List files with size
-ls -lh
+	# List files with size
+	ls -lh
 
-# Folder size (Summary)
-du -h
+	# Folder size (Summary)
+	du -h
 
-# Folder size
-du -sh
-du -sh {directory}
+	# Folder size
+	du -sh
+	du -sh {directory}
 # --------------------------------------------------------------
+
+
 
 # --------------------------------------------------------------
 # CPU
 # --------------------------------------------------------------
-# Show characteristics
-cat /proc/cpuinfo
+	# Show characteristics
+	cat /proc/cpuinfo
 
-# Show characteristics
-lscpu
+	# Show characteristics
+	lscpu
 
-# CPU usage
-ps -e -o pcpu,cpu,nice,state,cputime,args --sort pcpu | sed '/^ 0.0 /d'
+	# CPU usage
+	ps -e -o pcpu,cpu,nice,state,cputime,args --sort pcpu | sed '/^ 0.0 /d'
 # --------------------------------------------------------------
+
+
 
 # --------------------------------------------------------------
 # netstat
 # --------------------------------------------------------------
 # --------------------------------------------------------------
-
-# Change timezone
-dpkg-reconfigure tzdata
