@@ -7,7 +7,7 @@
 #  ╚═════╝ ╚═════╝ ╚═════╝ ╚══════╝╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝
 
 # Variables
-package="mysql-apt-config_0.8.0-1_all.deb"
+package="mysql-apt-config_0.8.1-1_all.deb"
 
 clear
 echo -e "\n ██████╗ ██████╗ ██████╗ ███████╗███╗   ███╗ █████╗ ███╗   ██╗
