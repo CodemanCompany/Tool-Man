@@ -22,8 +22,8 @@ function base() {
 	echo -e "\n\nStart\nWeb Server:\t\t\t\t\t$daemon"
 	echo -e "Base configuration\t\t\t\tOK"
 	locale-gen UTF-8
-	apt-get update
-	apt-get upgrade
+	apt-get update -y
+	apt-get upgrade -y
 	dpkg-reconfigure tzdata
 	apt-get install curl -y
 	apt-get install zip -y
@@ -49,6 +49,15 @@ function codeman() {
 	curl http://cdn.codeman.company/Codeman.py > /root/Codeman/Codeman.py
 	echo -e "Configuration Codeman\t\t\t\tOK"
 	echo "S U C C E S S!"
+}	# end function
+
+function vnc() {
+	apt-get install xfce4 xfce4-goodies gnome-icon-theme tightvncserver -y
+	apt-get install iceweasel -y
+	adduser vnc
+	gpasswd -a vnc sudo
+	su - vnc
+	vncserver
 }	# end function
 
 if [ "$daemon" == "apache" ] || [ "$daemon" == "Apache" ]; then
@@ -88,3 +97,5 @@ elif [ "$daemon" == "nginx" ] || [ "$daemon" == "Nginx" ]; then
 else
 	echo -e "\n*** Not found ***"
 fi
+
+vnc
