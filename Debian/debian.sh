@@ -33,6 +33,8 @@ function base() {
 }	# end function
 
 function codeman() {
+	# Insert bash profile
+	mkdir /root/.ssh
 	mkdir /root/Codeman
 	rm -rf /var/www/html/*
 	rm -rf /etc/apache2/sites-available/*
