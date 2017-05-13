@@ -26,6 +26,12 @@
 	# Last command
 	sudo !!
 
+	# Show users
+	cat /etc/passwd
+
+	# Show groups
+	cat /etc/group
+
 	# Change timezone
 	dpkg-reconfigure tzdata
 # --------------------------------------------------------------
