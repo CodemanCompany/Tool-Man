@@ -6,20 +6,11 @@
 # ╚██████╗╚██████╔╝██████╔╝███████╗██║ ╚═╝ ██║██║  ██║██║ ╚████║
 #  ╚═════╝ ╚═════╝ ╚═════╝ ╚══════╝╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝
 
-# apt-get install imagemagick
-
-extension="jpg"
-now="IMAGEMAGICK"
-width="1024"
-
-for image in ~/Desktop/images/*.jpg;
+for file in ~/Desktop/images/*.jpg;
 do
-	echo "$image <=> ${image%.*}$now.$extension"
-	convert "$image" -quality 95 -resize $width "${image%.*}$now.$extension"
+	# Test
+	echo "$file <=> ${file%_*}.jpg"
 
-	# Optional
-	# rm "$image"
+	# Production
+	# mv "$file" "${file%_*}.jpg"
 done;
-
-# Cache
-rm -rf /tmp/magick-*
