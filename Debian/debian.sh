@@ -33,7 +33,7 @@ function base() {
 }	# end function
 
 function codeman() {
-	# Insert bash profile
+	# TODO: Insert bash profile
 	mkdir /root/.ssh
 	mkdir /root/Codeman
 	rm -rf /var/www/html/*
@@ -51,6 +51,12 @@ function codeman() {
 	curl http://cdn.codeman.company/Codeman.py > /root/Codeman/Codeman.py
 	echo -e "Configuration Codeman\t\t\t\tOK"
 	echo "S U C C E S S!"
+}	# end function
+
+function nodejs() {
+	curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
+	sudo apt-get install -y nodejs
+	apt-get install -y build-essential
 }	# end function
 
 function vnc() {
