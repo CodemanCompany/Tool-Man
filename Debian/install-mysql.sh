@@ -7,7 +7,7 @@
 #  ╚═════╝ ╚═════╝ ╚═════╝ ╚══════╝╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝
 
 # Variables
-package="mysql-apt-config_0.8.1-1_all.deb"
+package="mysql-apt-config_0.8.7-1_all.deb"
 
 clear
 echo -e "\n ██████╗ ██████╗ ██████╗ ███████╗███╗   ███╗ █████╗ ███╗   ██╗
@@ -20,8 +20,8 @@ echo -e "\nInstall MySQL"
 
 wget http://dev.mysql.com/get/$package --output-document=/root/$package
 dpkg -i /root/$package
-apt-get update
-apt-get install mysql-server -y
+apt update
+apt install mysql-server -y
 rm -rf /root/$package
 clear
 service mysql status
