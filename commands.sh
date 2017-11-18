@@ -34,6 +34,9 @@
 
 	# Change timezone
 	dpkg-reconfigure tzdata
+
+	# Last 10 lines in real time
+	tail -f filename
 # --------------------------------------------------------------
 
 
