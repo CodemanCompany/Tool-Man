@@ -17,7 +17,7 @@
 	curl {URL} > {output}
 
 	# Compress
-	zip -r {file}.zip {path}
+	zip -r {file}.zip {path} [-e files]
 	unzip {file}.zip
 
 	# Remove directory
