@@ -25,6 +25,9 @@ do
 	#  This command resizes to a specific size
 	#convert "$image" -gravity center -extent 1100x700 "${image%.*}$now.$extension"
 
+	#	This command lowers the weight of an image by approximately 30% without losing the quality	
+	#convert "$image" -sampling-factor 4:2:0 -strip -quality 80 -interlace JPEG -colorspace sRGB "${image%.*}$now.$extension"
+
 	# Optional
 	# rm "$image"
 done;
